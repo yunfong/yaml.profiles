@@ -1,0 +1,8 @@
+/venv/
+/dist/
+/build/
+__pycache__
+YamlProfiles.egg-info
+yaml.profiles.egg-info
+.idea
+.DS_Store

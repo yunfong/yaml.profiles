@@ -1,0 +1,35 @@
+# 全局
+app:
+  name: spark-kyc
+  profile:
+    active: prod
+  server:
+    port: 8082
+urls:
+  - baidu.com
+  - aliyun.com
+  - tencent.com
+
+---
+$profile: dev
+mysql:
+  host: localhost
+  user: root
+  password: xxxx
+  db: testing
+  1: this key named 1
+  '2': this key named 2
+
+---
+$profile: prod
+mysql:
+  host: localhost
+  user: root
+  password: xxxx
+  db: prod-db
+app:
+  server:
+    port: 80
+
+urls:
+  - obatu.com
