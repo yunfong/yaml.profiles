@@ -61,37 +61,35 @@ This yaml configuration file contains two profile: prod, dev。
 ```python
 
 import os
-from yaml.profiles import YAML, get_yaml_config, get_nested_dict_value
+from yamlprofiles import YAML, get_yaml_config, get_nested_dict_value
 
 cur_dir = os.path.abspath(os.path.dirname(__file__))
 yaml_file = os.path.join(cur_dir, 'app.yml')
 
 if __name__ == '__main__':
-    # YAML对象可以重复使用
-    # 指定profile
+    # YAML object can be reused
+    # Specify profile
     yaml = YAML(yaml_file)
     config = yaml.get_profile('prod')
     print(config.get('mysql'))
     config = yaml.get_profile('dev')
     print(config['mysql'])
 
-    # 未指定profile参数时，会从命令行参数读取--profile，如果没有这个参数，则会读取配置文件中的app.profile.active字段
+    # When the profile parameter is not specified, it is read from the command line parameter `-- profile`, if it is not specified, the `app.profile.active` field in the configuration file is read
     print('--- cmd argument or app.profile.active---')
     config = yaml.get_profile()
     print(config)
 
-    # 便利性函数 get_yaml_config(yaml_file, profile=None)
+    # Convenience function `get_yaml_config(yaml_file, profile=None)`
     config = get_yaml_config(yaml_file)
     print(config.get('mysql'))
     print(config['app']['server']['port'])
     print(get_nested_dict_value(config,'app.server.port'))
     
-    #多级key直接读取
+    # Multi-level key direct reading
     print(config['app.server.port'])
-    # 取list
+    # read list
     print(config['urls'])
-    # 取list对象的某个下标
+    # read list index
     print(config['urls.[1]'])
 ```
-
-
