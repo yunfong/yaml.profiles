@@ -5,7 +5,7 @@
 
 #### Installation
 ```
-pip install yaml.profiles
+pip install YamlProfiles
 ```
 
 #### Examples

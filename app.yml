@@ -1,4 +1,4 @@
-# 全局
+# global
 app:
   name: spark-kyc
   profile:
